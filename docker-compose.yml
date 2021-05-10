@@ -1,0 +1,16 @@
+version: '3'
+
+services:  
+  greeting:
+    build: ./client
+    volumes:
+      - ./client:/workspace/ # dev use
+    depends_on: 
+      - echo
+
+  echo:
+    build: ./server
+    volumes:
+      - ./server:/workspace/ # dev use
+    ports:
+      - 8765:8765
